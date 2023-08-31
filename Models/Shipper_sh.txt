@@ -1,0 +1,22 @@
+[NAME]
+"shipper"
+
+[PLACES]
+sh_p1 -> receive_request
+sh_p2 -> prepration
+sh_p3 -> loading
+sh_p4 -> transport
+sh_p5 -> delivery
+
+[TRANSITIONS]
+receive_request -> sh_p2
+prepration -> sh_p3
+loading -> sh_p4
+transport -> sh_p5
+delivery -> sh_p6
+
+[INITIAL]
+sh_p1 [1]
+
+[FINAL]
+sh_p6 [1]

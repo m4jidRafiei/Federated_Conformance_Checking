@@ -1,0 +1,103 @@
+[NAME]
+"collaborative_silent"
+
+[PLACES]
+m_p1 -> skip1
+m_p2 -> send_order_request
+m_p3 -> order_confirmation
+m_p3 -> order_rejection
+m_p4 -> dispatched
+m_p7 -> delivered
+m_p8 -> skip2
+m_p9 -> skip3
+m_p5 -> skip3
+m_p6 -> invoice_receipt
+m_p10 -> payment
+m_p11 -> payment
+
+su_p2 -> skip4
+su_p3 -> accept
+su_p3 -> reject
+su_p4 -> skip5
+su_p5 -> skip6
+su_p6 -> order_shipment
+su_p7 -> ship_started
+su_p8 -> order_dispatch
+su_p9 -> order_dispatch
+su_p11 -> send_invoice
+su_p12 -> payment_collection
+
+sh_p2 -> prepration
+sh_p3 -> skip7
+sh_p4 -> skip8
+sh_p5 -> delivery
+
+io_p1 -> recieve_order
+io_p2 -> payment_collection
+io_p3 -> order_rejection
+io_p4 -> order_confirmation
+io_p5 -> invoice_receipt
+io_p6 -> dispatched
+io_p7 -> delivered
+io_p8 -> receive_request
+io_p9 -> ship_started
+
+
+[TRANSITIONS]
+skip1 -> m_p2
+send_order_request -> m_p3
+order_rejection -> m_p20
+order_confirmation -> m_p4
+order_confirmation -> m_p5
+order_confirmation -> m_p6
+dispatched -> m_p7
+delivered -> m_p8
+skip2 -> m_p9
+skip3 -> m_p10
+invoice_receipt -> m_p11
+payment -> m_p20
+
+recieve_order -> su_p2
+skip4 -> su_p3
+reject -> su_p20
+accept -> su_p4
+accept -> su_p5
+skip6 -> su_p6
+order_shipment -> su_p7
+ship_started -> su_p8
+skip5 -> su_p9
+order_dispatch -> su_p11
+send_invoice -> su_p12
+payment_collection -> su_p20
+
+receive_request -> sh_p2
+prepration -> sh_p3
+skip7 -> sh_p4
+skip8 -> sh_p5
+
+send_order_request -> io_p1
+payment -> io_p2
+reject -> io_p3
+accept -> io_p4
+send_invoice -> io_p5
+order_dispatch -> io_p6
+delivery -> io_p7
+order_shipment -> io_p8
+prepration -> io_p9
+
+[INITIAL]
+m_p1 [1]
+
+[FINAL]
+m_p20 [1]
+su_p20 [1]
+
+[INVISIBLE]
+skip1
+skip2
+skip3
+skip4
+skip5
+skip6
+skip7
+skip8

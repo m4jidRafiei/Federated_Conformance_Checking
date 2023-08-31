@@ -1,0 +1,36 @@
+[NAME]
+"manufacture"
+
+[PLACES]
+m_p1 -> create_purchase_order
+m_p2 -> send_order_request
+m_p3 -> order_confirmation
+m_p3 -> order_rejection
+m_p4 -> dispatched
+m_p7 -> delivered
+m_p8 -> order_check
+m_p9 -> goods_receipt
+m_p5 -> goods_receipt
+m_p6 -> invoice_receipt
+m_p10 -> payment
+m_p11 -> payment
+
+[TRANSITIONS]
+create_purchase_order -> m_p2
+send_order_request -> m_p3
+order_rejection -> m_p20
+order_confirmation -> m_p4
+order_confirmation -> m_p5
+order_confirmation -> m_p6
+dispatched -> m_p7
+delivered -> m_p8
+order_check -> m_p9
+goods_receipt -> m_p10
+invoice_receipt -> m_p11
+payment -> m_p20
+
+[INITIAL]
+m_p1 [1]
+
+[FINAL]
+m_p20 [1]

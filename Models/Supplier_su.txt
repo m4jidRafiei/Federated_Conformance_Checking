@@ -1,0 +1,36 @@
+[NAME]
+"supplier"
+
+[PLACES]
+su_p1 -> receive_order
+su_p2 -> order_management
+su_p3 -> accept
+su_p3 -> reject
+su_p4 -> create_invoice
+su_p5 -> order_process
+su_p6 -> order_shipment
+su_p7 -> ship_started
+su_p8 -> order_dispatch
+su_p9 -> order_dispatch
+su_p11 -> send_invoice
+su_p12 -> payment_collection
+
+[TRANSITIONS]
+receive_order -> su_p2
+order_management -> su_p3
+reject -> su_p20
+accept -> su_p4
+accept -> su_p5
+order_process -> su_p6
+order_shipment -> su_p7
+ship_started -> su_p8
+create_invoice -> su_p9
+order_dispatch -> su_p11
+send_invoice -> su_p12
+payment_collection -> su_p20
+
+[INITIAL]
+su_p1 [1]
+
+[FINAL]
+su_p20 [1]
